@@ -8,6 +8,7 @@ import (
 )
 
 func Hello(name string) (string, error) {
+	// 如果name没有值，则返回一个错误信息
 	if name == "" {
 		return "", errors.New("Empty name")
 	}
@@ -15,10 +16,12 @@ func Hello(name string) (string, error) {
 	return message, nil
 }
 
+// Go在程序启动时，全局变量初始化后自动执行init函数
 func init() {
 	rand.Seed(time.Now().UnixNano())
 }
 
+// 随即返回一个欢迎信息格式
 func randomFormat() string {
 	formats := []string{
 		"Hi,%v. Welcome!",
