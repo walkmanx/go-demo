@@ -34,7 +34,7 @@ func HttpGet(url string) (result string, err error) {
 	return
 }
 
-func DoSearch(start, end int) {
+func DoSpider(start, end int) {
 	fmt.Printf("开始查询从第 %d 页到第 %d 页的数据\n", start, end)
 
 	for i := start; i <= end; i++ {
@@ -62,5 +62,5 @@ func main() {
 	fmt.Printf("请输入终止页 （ >= 起始页）:")
 	fmt.Scan(&end)
 
-	DoSearch(start, end)
+	DoSpider(start, end)
 }
