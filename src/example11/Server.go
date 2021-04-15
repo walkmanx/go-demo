@@ -9,7 +9,7 @@ import (
 // 处理客户端请求
 func HandleConn(conn net.Conn) {
 
-	//defer conn.Close()
+	defer conn.Close()
 
 	addr := conn.RemoteAddr()
 	fmt.Println("addr connect sucessful :", addr)
