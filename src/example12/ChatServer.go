@@ -114,12 +114,14 @@ func HandlerConn(conn net.Conn) {
 
 	for {
 		select {
+		// 用户下线
 		case <-isQuit:
 			delete(onLineUsers, addr)
 			message <- BuildMessage(u, "下线")
 			return
 		case <-healCheck:
 
+		// 超时下线
 		case <-time.After(60 * time.Second):
 			delete(onLineUsers, addr)
 			message <- BuildMessage(u, "超时，服务器断开连接")
